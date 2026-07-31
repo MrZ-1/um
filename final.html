@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Girlfriend's Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background:#FFF8F2;
+
+font-family:Poppins,sans-serif;
+
+}
+
+canvas{
+
+position:fixed;
+inset:0;
+pointer-events:none;
+
+}
+
+.heart{
+
+font-size:90px;
+
+animation:beat 1.4s infinite;
+
+}
+
+@keyframes beat{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.18);
+
+}
+
+}
+
+h1{
+
+margin-top:20px;
+
+font-family:Caveat,cursive;
+
+font-size:58px;
+
+color:#ff5c8d;
+
+}
+
+p{
+
+margin-top:18px;
+
+font-size:20px;
+
+color:#666;
+
+text-align:center;
+
+line-height:1.8;
+
+padding:0 30px;
+
+}
+
+button{
+
+margin-top:40px;
+
+padding:14px 34px;
+
+border:none;
+
+border-radius:35px;
+
+background:#ff5c8d;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+box-shadow:0 12px 30px rgba(255,92,141,.3);
+
+}
+
+button:hover{
+
+background:#ff4479;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="heart">❤️</div>
+
+<h1>Happy Girlfriend's Day</h1>
+
+<p>
+
+Thank you for being part of my life.
+
+<br><br>
+
+I hope this little surprise
+
+made you smile.
+
+<br><br>
+
+I love you. ❤️
+
+</p>
+
+<button onclick="location.href='index.html'">
+
+Replay 💕
+
+</button>
+
+<script>
+
+const canvas=document.getElementById("confetti");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+
+canvas.height=innerHeight;
+
+let confetti=[];
+
+for(let i=0;i<180;i++){
+
+confetti.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*6+2,
+
+d:Math.random()*5+2
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#ff5c8d";
+
+confetti.forEach(c=>{
+
+ctx.beginPath();
+
+ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
+
+ctx.fill();
+
+c.y+=c.d;
+
+if(c.y>canvas.height){
+
+c.y=-10;
+
+c.x=Math.random()*canvas.width;
+
+}
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
+
+</body>
+</html>
