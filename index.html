@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Girlfriend's Day ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#FFF8F2;
+
+font-family:Poppins,sans-serif;
+
+}
+
+/* Background */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(circle at top right,#ffd6ea55,transparent 35%),
+radial-gradient(circle at bottom left,#ffe9cc66,transparent 40%);
+
+}
+
+/* Floating particles */
+
+.particle{
+
+position:absolute;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#ffd6ea;
+
+opacity:.5;
+
+animation:float 8s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.6;
+
+}
+
+100%{
+
+transform:translateY(-20vh);
+
+opacity:0;
+
+}
+
+}
+
+/* Card */
+
+.card{
+
+position:relative;
+
+width:90%;
+max-width:380px;
+
+text-align:center;
+
+z-index:5;
+
+}
+
+/* Letter */
+
+.paper{
+
+width:250px;
+height:155px;
+
+background:white;
+
+margin:auto;
+
+border-radius:15px;
+
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:Caveat,cursive;
+
+font-size:34px;
+
+color:#444;
+
+position:relative;
+
+top:45px;
+
+transition:.7s;
+
+z-index:1;
+
+}
+
+.paper small{
+
+display:block;
+
+font-size:23px;
+
+}
+
+/* Envelope */
+
+.envelope{
+
+position:relative;
+
+width:270px;
+height:180px;
+
+margin:auto;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+.front{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+height:130px;
+
+background:#F7D7B5;
+
+border-radius:0 0 15px 15px;
+
+z-index:4;
+
+}
+
+.left{
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:135px;
+height:130px;
+
+background:#EFC9A0;
+
+clip-path:polygon(0 0,100% 50%,0 100%);
+
+z-index:5;
+
+}
+
+.right{
+
+position:absolute;
+
+right:0;
+
+bottom:0;
+
+width:135px;
+height:130px;
+
+background:#EFC9A0;
+
+clip-path:polygon(100% 0,0 50%,100% 100%);
+
+z-index:5;
+
+}
+
+.flap{
+
+position:absolute;
+
+width:0;
+height:0;
+
+border-left:135px solid transparent;
+border-right:135px solid transparent;
+border-top:90px solid #F2C59B;
+
+transform-origin:top;
+
+transition:.8s;
+
+z-index:6;
+
+}
+
+.seal{
+
+position:absolute;
+
+left:50%;
+
+top:58px;
+
+transform:translateX(-50%);
+
+width:42px;
+height:42px;
+
+background:#FF5B87;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+font-size:20px;
+
+box-shadow:0 5px 12px rgba(0,0,0,.15);
+
+z-index:7;
+
+}
+
+/* Text */
+
+.title{
+
+margin-top:55px;
+
+font-size:38px;
+
+font-weight:700;
+
+color:#444;
+
+}
+
+.subtitle{
+
+margin-top:12px;
+
+color:#777;
+
+font-size:16px;
+
+line-height:1.7;
+
+}
+
+.tap{
+
+margin-top:35px;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+color:#999;
+
+text-transform:uppercase;
+
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:.45;
+
+}
+
+}
+
+/* Open */
+
+.open .paper{
+
+top:-15px;
+
+}
+
+.open .flap{
+
+transform:rotateX(180deg);
+
+}
+
+.open .seal{
+
+opacity:0;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+for(let i=0;i<30;i++){
+
+let p=document.createElement("div");
+
+p.className="particle";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=(6+Math.random()*6)+"s";
+
+p.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(p);
+
+}
+
+</script>
+
+<div class="card">
+
+<div class="paper">
+
+<div>
+
+Happy<br>
+
+<small>Girlfriend's Day ❤️</small>
+
+</div>
+
+</div>
+
+<div class="envelope" id="env" onclick="openLetter()">
+
+<div class="flap"></div>
+
+<div class="left"></div>
+
+<div class="right"></div>
+
+<div class="front"></div>
+
+<div class="seal">❤</div>
+
+</div>
+
+<div class="title">
+
+Hey, Love.
+
+</div>
+
+<div class="subtitle">
+
+I made something
+
+special for you.
+
+</div>
+
+<div class="tap">
+
+Tap the envelope
+
+</div>
+
+</div>
+
+<script>
+
+function openLetter(){
+
+document.getElementById("env").classList.add("open");
+
+setTimeout(()=>{
+
+window.location="balloon.html";
+
+},900);
+
+}
+
+</script>
+
+</body>
+</html>
