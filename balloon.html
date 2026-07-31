@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend's Day</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#FFF8F2;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* Floating sparkles */
+
+.sparkle{
+position:absolute;
+font-size:18px;
+opacity:.5;
+animation:twinkle 2.5s infinite;
+}
+
+@keyframes twinkle{
+50%{
+transform:scale(1.4);
+opacity:1;
+}
+}
+
+/* Balloon */
+
+.balloon{
+
+position:absolute;
+bottom:-400px;
+left:50%;
+transform:translateX(-50%);
+
+animation:rise 2.8s ease forwards;
+
+cursor:pointer;
+
+transition:1s;
+
+}
+
+@keyframes rise{
+
+0%{
+bottom:-400px;
+}
+
+100%{
+bottom:150px;
+}
+
+}
+
+/* Balloon */
+
+.heart{
+
+width:170px;
+height:170px;
+background:#ff5c8d;
+position:relative;
+
+transform:rotate(-45deg);
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(255,100,150,.25);
+
+animation:bounce 3s ease-in-out infinite;
+
+}
+
+.heart:before,
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:170px;
+height:170px;
+
+background:#ff5c8d;
+
+border-radius:50%;
+
+}
+
+.heart:before{
+
+top:-85px;
+left:0;
+
+}
+
+.heart:after{
+
+left:85px;
+top:0;
+
+}
+
+.ribbon{
+
+width:2px;
+height:130px;
+
+background:#b6a3a3;
+
+margin:auto;
+
+}
+
+/* Message */
+
+.note{
+
+background:white;
+
+padding:20px;
+
+width:260px;
+
+border-radius:18px;
+
+text-align:center;
+
+margin-top:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+opacity:0;
+
+animation:fade 1s forwards;
+
+animation-delay:2.5s;
+
+}
+
+.note h2{
+
+font-family:Caveat,cursive;
+
+font-size:40px;
+
+color:#ff5c8d;
+
+margin-bottom:8px;
+
+}
+
+.note p{
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+.tap{
+
+margin-top:18px;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+color:#999;
+
+opacity:0;
+
+animation:fade 1s forwards;
+
+animation-delay:3.3s;
+
+}
+
+@keyframes bounce{
+
+50%{
+transform:rotate(-45deg) translateY(-12px);
+}
+
+}
+
+@keyframes fade{
+
+to{
+opacity:1;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+for(let i=0;i<25;i++){
+
+let s=document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.top=Math.random()*100+"vh";
+
+s.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(s);
+
+}
+
+function nextPage(){
+
+document.getElementById("balloon").style.transform="translate(-50%,-140vh)";
+
+setTimeout(()=>{
+
+window.location="battery.html";
+
+},900);
+
+}
+
+</script>
+
+<div class="balloon"
+
+id="balloon"
+
+onclick="nextPage()">
+
+<div class="heart"></div>
+
+<div class="ribbon"></div>
+
+<div class="note">
+
+<h2>
+
+Happy Girlfriend's Day ❤️
+
+</h2>
+
+<p>
+
+You make ordinary days
+
+feel a little more magical.
+
+Thank you for being you.
+
+</p>
+
+</div>
+
+<div class="tap">
+
+TAP THE BALLOON
+
+</div>
+
+</div>
+
+</body>
+</html>
