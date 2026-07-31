@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Letter For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#FFF8F2;
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:Poppins,sans-serif;
+
+overflow:hidden;
+
+}
+
+/* Background hearts */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(circle at top right,#ffdce855,transparent 35%),
+radial-gradient(circle at bottom left,#ffe9d555,transparent 35%);
+
+}
+
+/* Letter */
+
+.paper{
+
+position:relative;
+
+width:92%;
+max-width:420px;
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+animation:appear .8s ease;
+
+z-index:5;
+
+}
+
+@keyframes appear{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+h2{
+
+font-family:Caveat,cursive;
+
+font-size:42px;
+
+color:#ff5c8d;
+
+margin-bottom:18px;
+
+}
+
+#text{
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#555;
+
+white-space:pre-line;
+
+min-height:280px;
+
+}
+
+button{
+
+display:none;
+
+margin-top:30px;
+
+padding:14px 32px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff5c8d;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(255,92,141,.25);
+
+}
+
+button:hover{
+
+background:#ff4479;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="paper">
+
+<h2>Hey Love, ❤️</h2>
+
+<div id="text"></div>
+
+<button id="next"
+
+onclick="location.href='final.html'">
+
+One Last Surprise 🎁
+
+</button>
+
+</div>
+
+<script>
+
+const letter=`Happy Girlfriend's Day. 💕
+
+I just wanted to remind you how grateful I am to have you in my life.
+
+Thank you for your kindness.
+
+Thank you for your patience.
+
+Thank you for making ordinary days feel so much brighter.
+
+I know I don't always find the perfect words, but I hope this little surprise shows just how much you mean to me.
+
+No matter how busy life gets, you'll always be someone very special to me.
+
+I hope today makes you smile...
+
+because your smile is still my favorite. ❤️`;
+
+let i=0;
+
+function type(){
+
+if(i<letter.length){
+
+document.getElementById("text").innerHTML+=letter.charAt(i);
+
+i++;
+
+setTimeout(type,22);
+
+}
+
+else{
+
+document.getElementById("next").style.display="inline-block";
+
+}
+
+}
+
+type();
+
+</script>
+
+</body>
+</html>
