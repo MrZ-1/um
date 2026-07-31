@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>You Charge My Heart ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+height:100vh;
+background:#FFF8F2;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+overflow:hidden;
+
+}
+
+h1{
+
+font-size:34px;
+margin-bottom:35px;
+color:#444;
+
+}
+
+#percent{
+
+font-size:48px;
+font-weight:bold;
+
+margin-top:30px;
+
+color:#ff5c8d;
+
+}
+
+.message{
+
+margin-top:20px;
+
+font-size:20px;
+
+color:#666;
+
+text-align:center;
+
+line-height:1.8;
+
+min-height:60px;
+
+}
+
+/* Battery */
+
+.battery{
+
+width:280px;
+
+height:120px;
+
+border:6px solid #555;
+
+border-radius:18px;
+
+padding:8px;
+
+position:relative;
+
+background:white;
+
+}
+
+.tip{
+
+position:absolute;
+
+right:-18px;
+
+top:40px;
+
+width:14px;
+
+height:35px;
+
+background:#555;
+
+border-radius:4px;
+
+}
+
+.level{
+
+height:100%;
+
+width:0%;
+
+background:linear-gradient(90deg,#ff7ca8,#ff4f84);
+
+border-radius:10px;
+
+transition:.6s;
+
+}
+
+button{
+
+margin-top:40px;
+
+padding:14px 32px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff5c8d;
+
+color:white;
+
+font-size:16px;
+
+display:none;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(255,90,150,.25);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>You Charge My Heart ❤️</h1>
+
+<div class="battery">
+
+<div class="tip"></div>
+
+<div class="level" id="level"></div>
+
+</div>
+
+<div id="percent">0%</div>
+
+<div class="message" id="msg">
+
+Without you...
+
+</div>
+
+<button id="next"
+
+onclick="location.href='reasons.html'">
+
+Continue ❤️
+
+</button>
+
+<script>
+
+let p=0;
+
+let level=document.getElementById("level");
+
+let percent=document.getElementById("percent");
+
+let msg=document.getElementById("msg");
+
+let next=document.getElementById("next");
+
+let interval=setInterval(()=>{
+
+p++;
+
+level.style.width=p+"%";
+
+percent.innerHTML=p+"%";
+
+if(p==30){
+
+msg.innerHTML="Thinking of you... 💕";
+
+}
+
+if(p==60){
+
+msg.innerHTML="Every moment with you... ✨";
+
+}
+
+if(p==100){
+
+clearInterval(interval);
+
+msg.innerHTML="My heart is full because of you ❤️";
+
+next.style.display="inline-block";
+
+}
+
+},40);
+
+</script>
+
+</body>
+</html>
